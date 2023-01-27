@@ -1,46 +1,13 @@
-import React { useContext }from 'react';
-import { GameContext }
+import React, { useContext } from 'react';
+import { GameContext} from '../../Context';
+import './Box.css';
 
-export default function Box() {
-  const gameData = [ 
-    {
-      space: 0,
-      content: ''
-    },
-    {
-      space: 1,
-      content: ''
-    },
-    {
-      space: 2,
-      content: ''
-    },
-    {
-      space: 3,
-      content: ''
-    },
-    {
-      space: 4,
-      content: ''
-    },
-    {
-      space: 5,
-      content: ''
-    },
-    {
-      space: 6,
-      content: ''
-    },
-    {
-      space: 7,
-      content: ''
-    },
-    {
-      space: 8,
-      content: ''
-    },
-  ];
+export default function Box({ content, space }) {
+  const { handleClick } = useContext(GameContext);
+
   return (
-    <div>Box</div>
-  )
+    <div className="box" onClick {() => handleClick(content, space)}>
+      <p>{content}</p>
+    </div>
+  );
 }

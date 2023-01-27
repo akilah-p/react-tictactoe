@@ -3,11 +3,13 @@ import { GameContext } from '../../Context/GameContext';
 
 
 export default function Board() {
-  const { board, handle}
+  const { board, handleClick, active } = useContext(GameContext);
+
  
   return (
-    <div className="board">Board
-    {boxes.map((box) =>)}
+    <div className ='board'>
+      {board.map}
     </div>
   )
+  
 }
