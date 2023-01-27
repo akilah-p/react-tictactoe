@@ -1,0 +1,13 @@
+.board {
+    display:grid;
+    grid-template: repeat(3, 1fr)/repeat(3, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas: none;
+        height: 600px;
+        width: 600px;
+}
+
+.board, .box {
+    border: 5px solid blue;
+}
