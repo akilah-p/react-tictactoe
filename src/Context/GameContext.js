@@ -21,7 +21,7 @@ const GameProvider = ({ children }) => {
       };
       setBoard(newGame);
     }
-    setPlayer(player === 'X' ? 'O' : 'X' );
+    setPlayer(player === 'X' ? 'O' : 'X');
     setMessage(`Your turn ${player === 'X' ? 'O' : 'X'}`);
   };
 
@@ -32,9 +32,23 @@ const GameProvider = ({ children }) => {
 
 
 
-  return <GameContext.Provider>{children}</GameContext.Provider>;
+  return <GameContext.Provider
+    value={{
+      board,
+      setBoard,
+      player,
+      setPlayer,
+      active,
+      setActive,
+      message,
+      setMessage,
+      handleClick,
+  
+    }}
+  >{children}</GameContext.Provider>;
     
 
 
 };
 
+export { GameContext, GameProvider };

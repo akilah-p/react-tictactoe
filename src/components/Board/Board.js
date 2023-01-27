@@ -1,12 +1,13 @@
 import React, { useContext } from 'react';
 import { GameContext } from '../../Context/GameContext';
-import { gameData, winData } from '../../../game-data';
 
-// export default function Board({boxes, player}) {
+
+export default function Board() {
+  const { board, handle}
  
-//   return (
-//     <div className="board">Board
-//     {boxes.map((box) =>)}
-//     </div>
-//   )
-// }
+  return (
+    <div className="board">Board
+    {boxes.map((box) =>)}
+    </div>
+  )
+}
