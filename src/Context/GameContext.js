@@ -1,20 +1,15 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useState } from 'react';
 import BoardData from '../game-data.js';
 
-const = GameContext = createContext();
+
+const GameContext = createContext();
 
 const GameProvider = ({ children }) => {
-    const [board, setBoard] = useState(BoardData);
     const [currentPlayer, setCurrentPlayer] = useState('X');
-    const [gameMessage, setGameMessage] = useState(null);
-    const [active, setActive] = useState=(true);
+    const [gameMessage, setGameMessage] = useState('');
+    const [active, setActive] = useState(true);
+    const [board, setBoard] = useState(Board);
+    const [winner, setWinner] = useState('');
+    
 
-    return(
-        <GameContext.Provider vale={{ board, setBoard, currentPlayer, setCurrentPlayer, gameMessage, setGameMessage, active, setActive }} >
-            {children}
-        </GameContext.Provider>
-
-    );
-};
-
-export { GameContext, GameProvider };
+}
