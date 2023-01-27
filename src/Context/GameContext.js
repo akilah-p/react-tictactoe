@@ -1,15 +1,12 @@
-import { createContext, useState } from 'react';
-import BoardData from '../game-data.js';
-
+import React, { createContext, useState, useEffect } from 'react';
+import { gameData, winData } from './game-data.js';
 
 const GameContext = createContext();
 
 const GameProvider = ({ children }) => {
-    const [currentPlayer, setCurrentPlayer] = useState('X');
-    const [gameMessage, setGameMessage] = useState('');
-    const [active, setActive] = useState(true);
-    const [board, setBoard] = useState(Board);
-    const [winner, setWinner] = useState('');
-    
+  const [board, setBoard] = useState(gameData);
+  const [player, setPlayer] = useState('X');
+  const [message, setMessage] = useState('Time to play');
+  const [active, setActive] = useState(true);
+};
 
-}
