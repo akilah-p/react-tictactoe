@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import { GameContext } from '../../Context/GameContext';
-import Box from '../Box';
 import './Board.css';
 
 
@@ -10,7 +9,7 @@ export default function Board() {
     <div className="board">
       {board.map((box) => (
         <div className='box'
-          onClick={winner == false ? () => handleClick(box) : undefined}
+          onClick={winner === false ? () => handleClick(box) : undefined}
           key={box.space}>
           {box.content}
         </div>
