@@ -51,4 +51,4 @@ const winData = [
   (2, 4, 6) 
 ];
 
-export default { gameData, winData };
+export { gameData, winData };

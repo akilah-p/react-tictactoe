@@ -1,6 +1,6 @@
 import './App.css';
-import Board from './components/Board';
-import Message from './components/Message';
+import Board from './components/Board/Board';
+import Message from './components/Message/Message';
 
 function App() {
   return (

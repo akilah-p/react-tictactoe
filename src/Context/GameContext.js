@@ -1,5 +1,5 @@
 import React, { createContext, useState } from 'react';
-import { gameData, winData } from './game-data.js';
+import { gameData, winData } from '../game-data';
 
 const GameContext = createContext();
 
