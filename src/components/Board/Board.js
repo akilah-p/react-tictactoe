@@ -4,15 +4,12 @@ import './Board.css';
 
 
 export default function Board() {
-  const { board, handleClick, winner } = useContext(GameContext);
+  const { board } = useContext(GameContext);
   return (
     <div className="board">
       {board.map((box) => (
-        <div className='box'
-          onClick={winner === false ? () => handleClick(box) : undefined}
-          key={box.space}>
-          {box.content}
-        </div>
+        <Box key={box.space} content={box.content} space={box.space} />
+       
       ))}
     </div>
   );

@@ -7,7 +7,6 @@ const GameProvider = ({ children }) => {
   const [board, setBoard] = useState(gameData);
   const [player, setPlayer] = useState('X');
   const [message, setMessage] = useState('Time to play');
-  const [active, setActive] = useState(false);
   const [winner, setWinner] = useState('');
   const [endGame, setEndGame] = useState(false);
   const [tie, setTie] = useState(false);
@@ -24,25 +23,27 @@ const GameProvider = ({ children }) => {
   }, [player, winner, endGame, tie]);
 
 
-  function resetGame() {
+  function resetGameButton() {
     setBoard(gameData);
     setPlayer('X');
     setWinner();
+    setTie(false);
     setMessage(`${player} it's your turn`);
     setEndGame(false);
   }
 
-  const handleClick = (content, space) => {
+  function handleClick(content, space) {
     if (content !== '') return;
     if (endGame === true) return;
 
     board[space].content = player;
-    resetGame();
+    handleEndGame();
     if (player === 'O') {
       setPlayer('X');
     } else {
       setPlayer('X');
     }
+  }
 
     //setting game logic 
     function handleEndGame() {
@@ -63,31 +64,31 @@ const GameProvider = ({ children }) => {
         setWinner(player); 
       }
       if (
-    board[0].content === player && 
-    board[4].content === player &&
-    board[8].content === player
+      board[0].content === player && 
+      board[4].content === player &&
+      board[8].content === player
      ) {
-    setEndGame(true);
-    setWinner(player);
+      setEndGame(true);
+      setWinner(player);
 }  if (
-  board[1].content === player && 
-  board[4].content === player &&
-  board[7].content === player
+    board[1].content === player && 
+    board[4].content === player &&
+    board[7].content === player
 ) {
   setEndGame(true);
   setWinner(player);
 } if (
-  board[2].content === player && 
-  board[5].content === player &&
-  board[8].content === player
+    board[2].content === player && 
+    board[5].content === player &&
+    board[8].content === player
 ) {
-  setEndGame(true);
-  setWinner(player);
+    setEndGame(true);
+    setWinner(player);
     }
-    if (
-      board[3].content === player && 
-      board[4].content === player &&
-      board[5].content === player
+  if (
+    board[3].content === player && 
+    board[4].content === player &&
+    board[5].content === player
     ) {
       setEndGame(true);
       setWinner(player);
@@ -111,28 +112,34 @@ if (
     handleTie();
   }
 
-  
-    
-  return <GameContext.Provider
+  function handleTie() {
+    if (
+      winner === undefined && 
+      board[0].content !== '' &&
+      board[1].content !== '' &&
+      board[2].content !== '' &&
+      board[3].content !== '' &&
+      board[4].content !== '' &&
+      board[5].content !== '' &&
+      board[6].content !== '' &&
+      board[7].content !== '' &&
+      board[8].content !== '' 
+    ) {
+      setEndGame(true);
+      setTie(true);
+    }
+
+  }
+  return ( 
+  <GameContext.Provider
     value={{
       board,
-      setBoard,
-      player,
-      setPlayer,
-      active,
-      setActive,
-      message,
-      setMessage,
       handleClick,
-      resetGame, 
-      winner,
-      turns
+      message,
+      handleEndGame
   
-    }}
-  >{children}</GameContext.Provider>;
-    
-
-
-};
-
-export { GameContext, GameProvider };
+    }}>
+      {children}
+  </GameContext.Provider>
+  export { GameContext, GameProvider };
+  );
