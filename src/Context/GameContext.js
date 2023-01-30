@@ -8,8 +8,15 @@ const GameProvider = ({ children }) => {
   const [player, setPlayer] = useState('X');
   const [message, setMessage] = useState('Time to play');
   const [active, setActive] = useState(false);
-  const [winner, setWinner] = useState(false);
-  const [turns, setNextTurns] = useState(9);
+  const [winner, setWinner] = useState('');
+  const [reset, setResetGame] = useState(false);
+  const [tie, setTie] = useState(false);
+
+  useEffect(() => {
+    const checkWinner = () => {
+      if
+    }
+  })
 
   const setTurn = () => {
     player === 'X' ? setPlayer('O') : setPlayer('X');
