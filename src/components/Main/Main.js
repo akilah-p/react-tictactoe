@@ -1,5 +1,6 @@
-import React, { useContext }from 'react';
+import React, { useContext } from 'react';
 import { GameContext } from '../../Context/GameContext';
+import './Main.css';
 
 export default function Main() {
   const { message, handleResetGame } = useContext(GameContext);

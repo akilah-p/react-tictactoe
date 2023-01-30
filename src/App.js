@@ -1,11 +1,11 @@
 import './App.css';
 import Board from './components/Board/Board';
-import Message from './components/Message/Message';
+import Main from './components/Main/Main';
 
 function App() {
   return (
     <div className="App">
-      <Message />
+      <Main />
       <Board />
     
     </div>
