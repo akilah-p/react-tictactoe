@@ -136,7 +136,7 @@ const GameProvider = ({ children }) => {
         board,
         handleClick,
         message,
-        handleEndGame
+        resetGameButton
   
       }}>
       {children}

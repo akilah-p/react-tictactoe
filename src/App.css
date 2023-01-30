@@ -5,12 +5,9 @@
   text-align:center;
 }
 .main {
+  display: flex;
+  justify-content:center;
   align-items:center;
-  display:grid;
-  justify-content: space-between;
-  max-width: 1200px;
-  width: 100%;
-  text-align:center;
 
 }
 .message {
