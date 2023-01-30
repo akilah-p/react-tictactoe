@@ -9,7 +9,7 @@ const GameProvider = ({ children }) => {
   const [message, setMessage] = useState('Time to play');
   const [active, setActive] = useState(false);
   const [winner, setWinner] = useState(false);
-  const [turns, setTurns] = useState(9);
+  const [turns, setNextTurns] = useState(9);
 
   const setTurn = () => {
     player === 'X' ? setPlayer('O') : setPlayer('X');
@@ -31,7 +31,7 @@ const GameProvider = ({ children }) => {
     setBoard(gameData);
     setPlayer('X');
     setWinner(false);
-    setTurns(9);
+    setNextTurns(9);
   };
 
   const handleClick = (box) => {
@@ -47,7 +47,7 @@ const GameProvider = ({ children }) => {
     });
 
     setBoard(newBoard);
-    setTurns(prev => prev - 1);
+    setNextTurns(prev => prev - 1);
 
     if (checkWin(newBoard)) {
       setWinner(player);

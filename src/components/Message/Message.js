@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { GameContext } from '../../context/GameContext';
+import { GameContext } from '../../Context/GameContext';
 import './Message.css';
 
 export default function Message() {
