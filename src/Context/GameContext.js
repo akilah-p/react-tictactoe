@@ -44,6 +44,7 @@ const GameProvider = ({ children }) => {
       setPlayer('O');
     }
   }
+  // 
 
     //setting game logic 
   function handleGameOver() {
