@@ -1,13 +1,26 @@
 .board {
-    display:grid;
-    grid-template: repeat(3, 1fr)/repeat(3, 1fr);
-        grid-template-rows: repeat(3, 1fr);
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-areas: none;
-        height: 600px;
-        width: 600px;
+    display: grid;
+    grid-template: repeat(3, 1fr)/repeat(3,1fr);
+    height:500px;
+    width:500px;
 }
 
-.board, .box {
-    border: 5px solid blue;
+.board, .board-box {
+    border: 5px solid green;
+    border-radius: 12px;
+    color: blue;
+}
+
+.h1 {
+    font:200;
+    color: pink;
+}
+
+.box-board {
+    align-items: center;
+    background-color: cornflowerblue;
+    display: flex;
+    font-size: 3rem;
+    font-weight: 550;
+    justify-content:center;
 }
