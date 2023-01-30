@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
 import { gameData, winData } from '../game-data';
 
 const GameContext = createContext();
@@ -9,62 +9,45 @@ const GameProvider = ({ children }) => {
   const [message, setMessage] = useState('Time to play');
   const [active, setActive] = useState(false);
   const [winner, setWinner] = useState('');
-  const [resetGame, setResetGame] = useState(false);
+  const [endGame, setEndGame] = useState(false);
   const [tie, setTie] = useState(false);
 
   useEffect(() => {
     const checkWinner = () => {
-      if(tie) {
+      if (tie) {
         setMessage('It is a tie!');
       } else {
-        winner && resetGame ? setMessage(`${winner} wins this round!`)
+        winner && endGame ? setMessage(`${winner} wins this time!`) : setMessage(`${player} it's your turn`);
       }
-    }
-  })
-
-  const setTurn = () => {
-    player === 'X' ? setPlayer('O') : setPlayer('X');
-  };
-
-  function checkWin(win) {
-    const rows = (a, b, c) => {
-      if (win[a].content === '' || win[b].content === '' || win[c].content === '')
-        return false;
-      return (
-        win[a].content === win[b].content && win[b].content === win[c].content);
-  
     };
+    checkWinner();
+  }, [player, winner, endGame, tie]);
 
-    return rows(winData);
-  }
 
-  const resetGame = () => {
+  function resetGame() {
     setBoard(gameData);
     setPlayer('X');
-    setWinner(false);
-    setNextTurns(9);
-  };
+    setWinner();
+    setMessage(`${player} it's your turn`);
+    setEndGame(false);
+  }
 
-  const handleClick = (box) => {
-    if (box.content !== '') return;
-    const newBoard = board.map((squares) => {
-      if (squares.space === box.space) {
-        return {
-          space: box.space,
-          content: (player === 'X' ? 'X' : 'O') };
-      }
-      return squares;
-    
-    });
+  const handleClick = (content, space) => {
+    if (content !== '') return;
+    if (endGame === true) return;
 
-    setBoard(newBoard);
-    setNextTurns(prev => prev - 1);
-
-    if (checkWin(newBoard)) {
-      setWinner(player);
+    board[space].content = player;
+    resetGame();
+    if (player === 'O') {
+      setPlayer('X');
+    } else {
+      setPlayer('X');
     }
-    setTurn();
-  };
+
+    //setting game logic 
+    function handleEndGame() {
+      if
+    }
     
   return <GameContext.Provider
     value={{
