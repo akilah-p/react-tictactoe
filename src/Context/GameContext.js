@@ -46,8 +46,72 @@ const GameProvider = ({ children }) => {
 
     //setting game logic 
     function handleEndGame() {
-      if
+      if (
+        board[0].content === player && 
+        board[1].content === player &&
+        board[2].content === player
+      ) {
+        setEndGame(true);
+        setWinner(player);
+       }
+       if (
+        board[0].content === player && 
+        board[3].content === player &&
+        board[6].content === player
+      ) {
+        setEndGame(true);
+        setWinner(player); 
+      }
+      if (
+    board[0].content === player && 
+    board[4].content === player &&
+    board[8].content === player
+     ) {
+    setEndGame(true);
+    setWinner(player);
+}  if (
+  board[1].content === player && 
+  board[4].content === player &&
+  board[7].content === player
+) {
+  setEndGame(true);
+  setWinner(player);
+} if (
+  board[2].content === player && 
+  board[5].content === player &&
+  board[8].content === player
+) {
+  setEndGame(true);
+  setWinner(player);
     }
+    if (
+      board[3].content === player && 
+      board[4].content === player &&
+      board[5].content === player
+    ) {
+      setEndGame(true);
+      setWinner(player);
+  }
+  if (
+    board[6].content === player && 
+    board[7].content === player &&
+    board[8].content === player
+  ) {
+    setEndGame(true);
+    setWinner(player);
+}
+if (
+  board[6].content === player && 
+  board[4].content === player &&
+  board[2].content === player
+) {
+  setEndGame(true);
+  setWinner(player);
+    }
+    handleTie();
+  }
+
+  
     
   return <GameContext.Provider
     value={{
