@@ -41,7 +41,7 @@ const GameProvider = ({ children }) => {
     if (player === 'O') {
       setPlayer('X');
     } else {
-      setPlayer('O');
+      setPlayer('X');
     }
   }
 
