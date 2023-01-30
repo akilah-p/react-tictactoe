@@ -9,12 +9,16 @@ const GameProvider = ({ children }) => {
   const [message, setMessage] = useState('Time to play');
   const [active, setActive] = useState(false);
   const [winner, setWinner] = useState('');
-  const [reset, setResetGame] = useState(false);
+  const [resetGame, setResetGame] = useState(false);
   const [tie, setTie] = useState(false);
 
   useEffect(() => {
     const checkWinner = () => {
-      if
+      if(tie) {
+        setMessage('It is a tie!');
+      } else {
+        winner && resetGame ? setMessage(`${winner} wins this round!`)
+      }
     }
   })
 
